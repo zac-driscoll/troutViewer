@@ -29,16 +29,16 @@ app_ui <- function(request) {
           shinydashboard::tabItem(
             tabName = "dashboard",
             shiny::fluidRow(
-              shinydashboard::box(plotOutput("plot1", height = 250)),
               shinydashboard::box(
-                title = "Controls",
-                sliderInput("slider", "Number of observations:", 1, 100, 50)
-              )
-            )
+                mod_ipsum_plot_ui("ipsum_plot_ui_1")))
           ),
           # Second tab content
-          shinydashboard::tabItem(tabName = "widgets",
-                                  h2("Widgets tab content"))
+          shinydashboard::tabItem(
+            tabName = "widgets",
+            shiny::fluidRow(
+              shinydashboard::box(
+                mod_ipsum_plot_ui("ipsum_plot_ui_2")))
+          )
         )
       )
     )

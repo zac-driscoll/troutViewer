@@ -9,8 +9,7 @@
 #' @importFrom shiny NS tagList 
 mod_ipsum_plot_ui <- function(id){
   ns <- NS(id)
-  tagList(shiny::column(6,
-                        plotly::plotlyOutput(shiny::NS(id, "ipsum"))))
+  tagList(shiny::column(9,plotly::plotlyOutput(shiny::NS(id, "ipsum"))))
 }
     
 #' ipsum_plot Server Functions
