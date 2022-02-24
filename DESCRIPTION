@@ -1,17 +1,32 @@
 Package: troutViewer
-Title: An Amazing Shiny App
+Title: Trout Viewer
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "firstname",
-           family = "lastname",
-           role = c("aut", "cre"),
-           email = "your@email.com")
-Description: What the package does (one paragraph).
-License: What license is it under?
+Authors@R: person('Zac', 'Driscoll', email = 'zgdriscoll@gmail.com', role = c('cre', 'aut'))
+Description: Package to view trout.
+License: MIT + file LICENSE
 Imports: 
+    attempt,
     config (>= 0.3.1),
+    dplyr,
+    DT,
+    ggplot2,
+    glue,
     golem (>= 0.3.1),
-    shiny (>= 1.7.1)
+    htmltools,
+    plotly,
+    processx,
+    shinipsum,
+    shiny (>= 1.7.1),
+    shinydashboard,
+    trout.modlR
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
+Suggests: 
+    rmarkdown,
+    knitr,
+    spelling,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Language: en-US
+VignetteBuilder: knitr
