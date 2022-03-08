@@ -23,7 +23,10 @@ app_ui <- function(request) {
           shinydashboard::menuItem(
             "Plot Biomass",
             tabName = "biomass",
-            icon = icon("weight-hanging")
+            icon = icon("weight-hanging"),
+            shinydashboard::menuSubItem(
+              mod_ipsum_submenu_ui("ipsum_submenu_ui_1")
+            )
           ),
           shinydashboard::menuItem("Plot Mortality",
                                    tabName = "mortality",
@@ -31,42 +34,35 @@ app_ui <- function(request) {
         )
       ),
       #body
-      shinydashboard::dashboardBody(
-        shinydashboard::tabItems(
-          # First tab content
-          shinydashboard::tabItem(tabName = "import",
-                                  tabsetPanel(
-                                    type = "tabs",
-                                    tabPanel("Model1",
-                                             shiny::fluidRow(shinydashboard::box(
-                                               mod_load_data_ui("ipsum_load1")
-                                             )),
-                                             shiny::fluidRow(
-                                               # shiny::h3("Model 1 Data"),
-                                               mod_ipsum_summary_ui("ipsum_text_ui_1"))
-                                             ),
-                                    tabPanel("Model2",
-                                             shiny::fluidRow(shinydashboard::box(
-                                               mod_load_data_ui("ipsum_load1")
-                                             )),
-                                             shiny::fluidRow(
-                                               shiny::h3("Model 2 Data"),
-                                               mod_ipsum_table_ui("ipsum_table_ui_2"))
-                                             ),
-                                    tabPanel("Model3",
-                                             shiny::fluidRow(shinydashboard::box(
-                                               mod_load_data_ui("ipsum_load3")
-                                             )),
-                                             shiny::fluidRow(
-                                               shiny::h3("Model 3 Data"),
-                                               mod_ipsum_table_ui("ipsum_table_ui_3"))
-                                  ))), 
+      shinydashboard::dashboardBody(shinydashboard::tabItems(
+        # First tab content
+        shinydashboard::tabItem(
+          tabName = "import",
+          tabsetPanel(
+            type = "tabs",
+            tabPanel(
+              "Model1",
+              mod_load_data_ui("ipsum_load1"),
+              mod_ipsum_summary_ui("ipsum_text1")
+            ),
+            tabPanel(
+              "Model2",
+              mod_load_data_ui("ipsum_load2"),
+              mod_ipsum_summary_ui("ipsum_text2")
+            ),
+            tabPanel(
+              "Model3",
+              mod_load_data_ui("ipsum_load3"),
+              mod_ipsum_summary_ui("ipsum_text3")
+            )
+          )
+        ),  
           # Second tab content
           shinydashboard::tabItem(
             tabName = "biomass",
-            shiny::fluidRow(
+            mod_ipsum_biomass_input_ui("ipsum_biomass_input_ui_1"),
               shinydashboard::box(
-                mod_ipsum_plot_ui("ipsum_plot_ui_1")))
+                mod_ipsum_plot_ui("ipsum_plot_ui_1"))
           ),
           # Third tab content
           shinydashboard::tabItem(
