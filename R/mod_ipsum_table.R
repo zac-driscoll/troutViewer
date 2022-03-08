@@ -9,8 +9,17 @@
 #' @importFrom shiny NS tagList 
 mod_ipsum_table_ui <- function(id){
   ns <- NS(id)
-  tagList(
-    tagList(shiny::column(9,DT::DTOutput(shiny::NS(id, "ipsum"))))
+  tagList(shiny::column(
+    6,
+    offset = 1,
+    shinydashboard::box(
+      title = "Biomass Data",
+      width = NULL,
+      status = "primary",
+      solidHeader = TRUE,
+      height = 525,
+    tagList(DT::DTOutput(shiny::NS(id, "ipsum"))))
+  )
   )
 }
     

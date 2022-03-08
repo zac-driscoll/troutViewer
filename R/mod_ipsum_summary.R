@@ -10,7 +10,10 @@
 mod_ipsum_summary_ui <- function(id) {
   ns <- NS(id)
   tagList(
+    shiny::column(4,
+                  offset = 1,
     shinydashboard::box(
+      width = NULL,
       title = "Model Summary", 
       status = "primary", 
       solidHeader = TRUE,
@@ -23,6 +26,7 @@ mod_ipsum_summary_ui <- function(id) {
       shiny::br(),
       shiny::htmlOutput(shiny::NS(id, "ipsum4"))
     )
+  )
   )
 }
     

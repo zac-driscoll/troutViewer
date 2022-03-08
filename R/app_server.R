@@ -21,6 +21,5 @@ app_server <- function(input, output,session) {
                            spp ="Lake Trout",
                            mod_dat = "11-17-2020",
                            author = "Ben Turschak")
-  mod_ipsum_table_server("ipsum_table_ui_2")
-  mod_ipsum_table_server("ipsum_table_ui_3")
+  mod_ipsum_table_server("ipsum_table_ui_1")
 }

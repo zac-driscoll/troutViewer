@@ -21,12 +21,9 @@ app_ui <- function(request) {
             selected = TRUE
           ),
           shinydashboard::menuItem(
-            "Plot Biomass",
+            "Biomass",
             tabName = "biomass",
-            icon = icon("weight-hanging"),
-            shinydashboard::menuSubItem(
-              mod_ipsum_submenu_ui("ipsum_submenu_ui_1")
-            )
+            icon = icon("weight-hanging")
           ),
           shinydashboard::menuItem("Plot Mortality",
                                    tabName = "mortality",
@@ -60,10 +57,22 @@ app_ui <- function(request) {
           # Second tab content
           shinydashboard::tabItem(
             tabName = "biomass",
-            mod_ipsum_biomass_input_ui("ipsum_biomass_input_ui_1"),
-              shinydashboard::box(
-                mod_ipsum_plot_ui("ipsum_plot_ui_1"))
-          ),
+            tabsetPanel(
+              type = "tabs",
+              tabPanel(
+                "Plot Biomass",
+                shiny::br(),
+                shiny::fluidRow(
+                  mod_ipsum_biomass_input_ui("ipsum_biomass_input_ui_1",
+                                             "Plot Data"),
+                  mod_ipsum_plot_ui("ipsum_plot_ui_1"))),
+              tabPanel(
+                "View Data",
+                shiny::br(),
+                shiny::fluidRow(
+                  mod_ipsum_biomass_input_ui("ipsum_biomass_input_ui_2",
+                                             "Get Data"),
+                  mod_ipsum_table_ui("ipsum_table_ui_1"))))),
           # Third tab content
           shinydashboard::tabItem(
             tabName = "mortality",

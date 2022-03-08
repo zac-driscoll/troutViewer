@@ -7,9 +7,20 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_ipsum_plot_ui <- function(id){
+mod_ipsum_plot_ui <- function(id) {
   ns <- NS(id)
-  tagList(shiny::column(9,plotly::plotlyOutput(shiny::NS(id, "ipsum"))))
+  tagList(shiny::column(
+    6,
+    offset = 1,
+    shinydashboard::box(
+      title = "Biomass Plot",
+      width = NULL,
+      status = "primary",
+      solidHeader = TRUE,
+      height = 500,
+      plotly::plotlyOutput(shiny::NS(id, "ipsum"))
+    )
+  ))
 }
     
 #' ipsum_plot Server Functions

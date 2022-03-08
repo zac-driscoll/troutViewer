@@ -7,24 +7,28 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_ipsum_biomass_input_ui <- function(id) {
+mod_ipsum_biomass_input_ui <- function(id,button_name) {
   ns <- NS(id)
-  tagList(
+  tagList(shiny::column(
+    4,
     shinydashboard::box(
       title = "Select Model",
       status = "primary",
+      width = NULL,
       solidHeader = TRUE,
       height = 200,
       shiny::selectInput(
         shiny::NS(id, "models"),
-        "Select Models",
+        "",
         choices = c("Model1", "Model2", "Model3"),
         multiple = TRUE
       ),
       shiny::checkboxInput(shiny::NS(id, "cumul"),
-                           "Cumulative?")
+                           "Cumulative?"),
+      shiny::actionButton(shiny::NS(id, "button"),
+                          button_name)
     )
-  )
+  ))
 }
     
 #' ipsum_biomass_input Server Functions
