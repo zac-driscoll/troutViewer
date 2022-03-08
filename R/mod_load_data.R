@@ -30,7 +30,6 @@ mod_load_data_server <- function(id) {
   })
 }
 
-    
 ## To be copied in the UI
 # mod_load_data_ui("load_data_ui_1")
     

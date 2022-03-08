@@ -15,10 +15,10 @@ mod_ipsum_plot_ui <- function(id){
 #' ipsum_plot Server Functions
 #'
 #' @noRd 
-mod_ipsum_plot_server <- function(id){
+mod_ipsum_plot_server <- function(id,plot_type){
   moduleServer(id, function(input, output, session){
     output$ipsum <-
-      plotly::renderPlotly(shinipsum::random_ggplotly())
+      plotly::renderPlotly(shinipsum::random_ggplotly(plot_type))
   })
 }
     

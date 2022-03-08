@@ -25,9 +25,10 @@ usethis::use_package("shinipsum")
 usethis::use_package("trout.modlR")
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module( name = "ipsum_plot" ) # Name of the module
-golem::add_module( name = "load_data" ) # Name of the module
-
+golem::add_module( name = "ipsum_plot" ) # Ipsum ggPloty
+golem::add_module( name = "load_data" ) # Load Data
+golem::add_module( name = "ipsum_table" ) #Ipsum table 
+golem::add_module(name = "ipsum_summary")
 ## Add helper functions ----
 ## Creates fct_* and utils_*
 golem::add_fct( "helpers" ) 
