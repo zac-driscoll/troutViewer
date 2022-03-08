@@ -29,6 +29,7 @@ golem::add_module( name = "ipsum_plot" ) # Ipsum ggPloty
 golem::add_module( name = "load_data" ) # Load Data
 golem::add_module( name = "ipsum_table" ) #Ipsum table 
 golem::add_module(name = "ipsum_summary")
+golem::add_module(name = "ipsum_biomss_input")
 ## Add helper functions ----
 ## Creates fct_* and utils_*
 golem::add_fct( "helpers" ) 

@@ -6,16 +6,19 @@
 #'
 #' @noRd 
 #'
-#' @importFrom shiny NS tagList 
-mod_load_data_ui <- function(id){
+#' @importFrom shiny NS tagList
+mod_load_data_ui <- function(id) {
   shiny::tagList(
-    shiny::fileInput(
-      shiny::NS(id, "modelData"),
-      "Select Model Output"),
-    shiny::actionButton(
-      shiny::NS(id,"data_button"),
-      "Get Data")
-  )
+    shiny::br(),
+    shinydashboard::box(
+      title = "Select Model", 
+      status = "primary", 
+      solidHeader = TRUE,
+      height = 200,
+      shiny::fileInput(shiny::NS(id, "modelData"),""),
+      shiny::actionButton(shiny::NS(id, "data_button"),
+                          "Get Data")
+  ))
 }
     
 #' load_data Server Functions
