@@ -7,7 +7,7 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_ipsum_biomass_input_ui <- function(id,button_name) {
+mod_ipsum_biomass_input_ui <- function(id,button_name,group = FALSE) {
   ns <- NS(id)
   tagList(shiny::column(
     4,
@@ -16,15 +16,31 @@ mod_ipsum_biomass_input_ui <- function(id,button_name) {
       status = "primary",
       width = NULL,
       solidHeader = TRUE,
-      height = 200,
+      height = dplyr::if_else(group == TRUE, 300, 200),
       shiny::selectInput(
         shiny::NS(id, "models"),
         "",
         choices = c("Model1", "Model2", "Model3"),
         multiple = TRUE
       ),
-      shiny::checkboxInput(shiny::NS(id, "cumul"),
-                           "Cumulative?"),
+      shiny::radioButtons(shiny::NS(id, "cumul"),
+                          "Cumulative?",
+                          choices = c("Yes", "No")),
+      if (group == TRUE) {
+        # Only show this panel if the plot type is a histogram
+        shiny::selectInput(
+          shiny::NS(id, "group"),
+          "Select Grouping Parameter",
+          choices = c(
+            NULL,
+            "Year",
+            "Data Type",
+            "Management  Unit",
+            "Species",
+            "Model"
+          )
+        )
+      },
       shiny::actionButton(shiny::NS(id, "button"),
                           button_name)
     )

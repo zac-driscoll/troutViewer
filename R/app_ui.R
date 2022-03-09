@@ -71,7 +71,8 @@ app_ui <- function(request) {
                 shiny::br(),
                 shiny::fluidRow(
                   mod_ipsum_biomass_input_ui("ipsum_biomass_input_ui_2",
-                                             "Get Data"),
+                                             "Get Data",
+                                             group = TRUE),
                   mod_ipsum_table_ui("ipsum_table_ui_1"))))),
           # Third tab content
           shinydashboard::tabItem(
