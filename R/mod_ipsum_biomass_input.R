@@ -23,9 +23,7 @@ mod_ipsum_biomass_input_ui <- function(id,button_name,group = FALSE) {
         choices = c("Model1", "Model2", "Model3"),
         multiple = TRUE
       ),
-      shiny::radioButtons(shiny::NS(id, "cumul"),
-                          "Cumulative?",
-                          choices = c("Yes", "No")),
+      shiny::checkboxInput(shiny::NS(id, "cumul"),"Cumulative?"),
       if (group == TRUE) {
         # Only show this panel if the plot type is a histogram
         shiny::selectInput(
