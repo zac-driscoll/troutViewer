@@ -41,7 +41,7 @@ app_ui <- function(request) {
               "Model1",
               mod_load_data_ui("ipsum_load1"),
               mod_ipsum_summary_ui("ipsum_text1")
-            ),
+            ), 
             tabPanel(
               "Model2",
               mod_load_data_ui("ipsum_load2"),
@@ -63,9 +63,7 @@ app_ui <- function(request) {
                 "Plot Biomass",
                 shiny::br(),
                 shiny::fluidRow(
-                  mod_ipsum_biomass_input_ui("ipsum_biomass_input_ui_1",
-                                             "Plot Data"),
-                  mod_ipsum_plot_ui("ipsum_plot_ui_1"))),
+                  mod_plot_biomass_ui("plot_biomass_ui_1"))), 
               tabPanel(
                 "View Data",
                 shiny::br(),
@@ -84,7 +82,7 @@ app_ui <- function(request) {
         )
       )
     )
-  )
+  ) 
 }
 
 #' @import shiny
