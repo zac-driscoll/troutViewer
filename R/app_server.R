@@ -13,4 +13,21 @@ app_server <- function(input, output,session) {
                           )
  #table
   mod_ipsum_table_server("ipsum_table_ui_1")
+  
+  #summary
+  mod_ipsum_summary_server("ipsum_text1",
+                           mu = "MM-67",
+                           spp ="Lake Trout",
+                           mod_dat = "10-31-2020",
+                           author = "Ben Turschak")
+  mod_ipsum_summary_server("ipsum_text2",
+                           mu = "MM-67",
+                           spp ="Lake Trout",
+                           mod_dat = "12-25-2020",
+                           author = "Ben Turschak")
+  mod_ipsum_summary_server("ipsum_text3",
+                           mu = "MM-67",
+                           spp ="Lake Trout",
+                           mod_dat = "11-17-2020",
+                           author = "Ben Turschak")
 }
